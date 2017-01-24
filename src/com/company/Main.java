@@ -10,23 +10,21 @@ public class Main{
 
         System.out.println("Вот уже 20 лет в государстве нашем смута! Но наконец-то на престоле сильный король! \n" +
                 "Лишь на вас народ уповает, государь. Как изволите вас величать?");
-        King king = new King(sc.next());
-        System.out.println(king.kingName+"! А державу нашу как назовем, что бы окончательно позабыть смутное время?");
-        king.countryName(sc.next());
+        Kingdom kingdom = new Kingdom(sc.next());
+        System.out.println(kingdom.kingName+"! А державу нашу как назовем, что бы окончательно позабыть смутное время?");
+        kingdom.countryName(sc.next());
         System.out.println("В добрый путь!");
-        System.out.println("========Для выхода введите 10=======");
         int n = 0;
         while (true) {
-            story.newKing(king);
+            kingdom.newKing();
             story.newStory();
-
-            while(story.End(king) == 0){
+            while(story.End(kingdom) == 0){
                 System.out.println("=======================Сводки====================\n"+
-                                   "|==============Королевство: "+king.countryName+" ===============\n"+
-                                   "|==============Король: "+king.kingName+" =============\n"+
-                                   "|Золото: "+king.Gold+" ==Население: "+king.Population+" ==Армия: "+king.Army+" ==Довольство: "+king.Sat+" ==Возраст: "+king.Age+"==");
+                                   "|==============Королевство: "+ kingdom.kingdomName +" ===============\n"+
+                                   "|==============Король: "+ kingdom.kingName+" =============\n"+
+                                   "|Золото: "+ kingdom.Gold+" ==Население: "+ kingdom.Population+" ==Армия: "+ kingdom.Army+" ==Довольство: "+ kingdom.Sat+" ==Возраст: "+ kingdom.Age+"==");
                 System.out.println(story.situations[n].text);
-                story.chooseVariant(sc,story.situations[n],king);
+                story.situations[n].chooseVariant(sc, kingdom);
                 n++;
                 if (n >= story.situations.length){
                     story.newStory();
@@ -34,7 +32,7 @@ public class Main{
                 }
             }
 
-            switch(story.End(king)) {
+            switch(story.End(kingdom)) {
                 case 1:
                     System.out.println("Наша страна обнищала! Уже совсем скоро народу будет нечего есть! Я настоятельно \n" +
                             "рекомендую вам отречься от престола, пока разгневанный народ не вышел на улицы.");
@@ -43,7 +41,7 @@ public class Main{
                     System.out.println("Народ недоволен! Вы что, не видете этого !? Ваше правление принесло этим людям большие беды!");
                     break;
                 case 3:
-                    System.out.println("Лоюди умираю или бегут из страны! Скоро вам будет некем править.");
+                    System.out.println("Лоюди умирают или бегут из страны! Скоро вам будет некем править.");
                     break;
                 case 5:
                     System.out.println("Другое королевство вторглось на нашу территорию! Нам нечем им ответить - наших войск недостаточно!");
@@ -55,8 +53,8 @@ public class Main{
 
             System.out.println("Нам понадобилось несколько лет, чтобы справится с прорблемами прошлого и сейчас на престоле новый монарх!");
             System.out.println("Как вас зовут, ваше величество?");
-            king.kingName = sc.next();
-            System.out.println("Удачного вам правления, "+king.kingName+", в королевстве "+king.countryName);
+            kingdom.kingName = sc.next();
+            System.out.println("Удачного вам правления, "+ kingdom.kingName+" из королевства "+ kingdom.kingdomName);
         }
     }
 }
