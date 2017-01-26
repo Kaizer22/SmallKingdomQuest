@@ -15,7 +15,7 @@ public class Kingdom {
     public void newKing(){
         this.Gold = (int)(100* Math.random());
         this.Age = (int)(10 + (20*Math.random()));
-        this.Population = (int)(100*Math.random());
+        this.Population = (int)(10+90*Math.random());
         this.Army = (int)(this.Population/6+(this.Population/2*Math.random()));
         this.Sat = (int)(30 *Math.random());
     }

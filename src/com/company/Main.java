@@ -1,5 +1,6 @@
 package com.company;
 
+import java.io.File;
 import java.util.Scanner;
 
 public class Main{
@@ -14,7 +15,9 @@ public class Main{
         System.out.println(kingdom.kingName+"! А державу нашу как назовем, что бы окончательно позабыть смутное время?");
         kingdom.countryName(sc.next());
         System.out.println("В добрый путь!");
+
         int n = 0;
+
         while (true) {
             kingdom.newKing();
             story.newStory();
@@ -51,7 +54,7 @@ public class Main{
                     break;
             }
 
-            System.out.println("Нам понадобилось несколько лет, чтобы справится с прорблемами прошлого и сейчас на престоле новый монарх!");
+            System.out.println("Нам понадобилась пара лет, чтобы справится с прорблемами прошлого и сейчас на престоле новый монарх!");
             System.out.println("Как вас зовут, ваше величество?");
             kingdom.kingName = sc.next();
             System.out.println("Удачного вам правления, "+ kingdom.kingName+" из королевства "+ kingdom.kingdomName);
